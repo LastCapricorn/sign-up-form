@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Form</title>
+    <link rel="shortcut icon" href="./image/lc_dark_green.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div>
+        <div>
+          <img src="./image/lc_dark_green.svg" alt="logo zodiac sign capricorn" width="80px">
+          <h1>Exit</h1>
+        </div>
+        <div>
+          <p>Picture by <a href="https://pixabay.com/de/users/hermann-130146/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=455338" target="_blank">
+            Hermann Traub</a> on <a href="https://pixabay.com/de//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=455338" target="_blank">
+            Pixabay</a>
+          </p>
+        </div>
+      </div>
+      <div>
+        <section>
+          <p>This is <em>not</em> your real life!</p>
+          <p>You <em>know</em> I have to visit you in your nightmares to force you to realize, that you're mental starving while you're in deep sleep.</p>
+          <p>Sign up <em>now</em> to Log Out.</p>
+          <p>I know you'll choose the red one.</p>
+        </section>
+        <section>
+          <p>Leave the Matrix <em>now</em>!</p>
+          <form action="#" method="post">
+            <p>Fields with <span aria-label="required">*</span> are required.</p>
+            <fieldset>
+              <legend>Who you are (information for contact)</legend>
+              <label for="first_name">First Name <span aria-label="required">*</span>
+                <input type="text" id="first_name" name="first_name" placeholder="Last" autocomplete="name" required>
+              </label>
+              <label for="last_name">Last Name <span aria-label="required">*</span>
+                <input type="text" id="last_name" name="last_name" placeholder="Capricorn" autocomplete="family-name" required>
+              </label>
+              <label for="email">Email <span aria-label="required">*</span>
+                <input type="email" id="email" name="email" placeholder="last.capricorn@3m41l.com" autocomplete="email" required>
+              </label>
+              <label for="phone_number">Phone Number
+                <input type="tel" id="phone_number" name="phone_number" placeholder="+49 30 1234567" autocomplete="tel-country-code">
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Choose an appropriate password</legend>
+              <label for="password">Password <span aria-label="required">*</span>
+                <input type="password" id="password" name="password" placeholder="ab%D56?hI§k0M" required>
+              </label>
+              <label for="password_confirm">Confirm Password <span aria-label="required">*</span>
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="ab%D56?hI§k0M" required>
+              </label>
+              <button type="submit">Create Account</button>
+              <ul>
+                <li>at least 8 signs</li>
+                <li>at least one uppercase character</li>
+                <li>at least one special character</li>
+                <li>at least one digit</li>
+              </ul>
+            </fieldset>
+          </form>
+        </section>
+        <section>
+          <p>You already know how deep the rabbit hole goes? <a href="#">Sign in</a></p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
