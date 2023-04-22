@@ -10,7 +10,7 @@ function checkConfirmation(ev) {
   if (pwConfirmed) {
     inputConfirmPassword.setCustomValidity('');
   } else {
-    inputConfirmPassword.setCustomValidity('You should repeat your chosen password!');
+    inputConfirmPassword.setCustomValidity('Passwords do not match!');
   }
 }
 
@@ -34,7 +34,7 @@ function checkPassword(ev) {
   if (pwRequirements.every( req => req === true)) {
     inputPassword.setCustomValidity('');
   } else {
-    inputPassword.setCustomValidity('your password should have a length of at least 8 signs, and must consist of upper- and lowercase letters, special characters and digits!');
+    inputPassword.setCustomValidity('Password must have 8 signs min., upper- & lowercase letters, special characters and digits!');
   }
 }
 
@@ -65,8 +65,14 @@ function togglePassword() {
 }
 
 function scrollToForm() {
-  document.documentElement.scrollTo(0, document.documentElement.clientHeight);
-  document.querySelector('body').classList.remove('locked');
+  if (document.documentElement.clientWidth < 739) {
+    document.documentElement.scrollTo(0, document.documentElement.clientHeight);
+  } else {
+    document.documentElement.scrollTo(document.documentElement.clientWidth, 0);
+  }
+  document.querySelector('body').classList.add('push');
+  document.querySelector('main').classList.add('push');
+  document.querySelector('footer').classList.add('push');
   document.querySelector('body').removeEventListener('click', scrollToForm);
   document.querySelector('body').removeEventListener('touchstart', scrollToForm);
   document.querySelector('body').removeEventListener('keypress', scrollToForm);
@@ -75,6 +81,15 @@ function scrollToForm() {
 document.querySelector('body').addEventListener('click', scrollToForm);
 document.querySelector('body').addEventListener('touchstart' , scrollToForm);
 document.querySelector('body').addEventListener('keypress', scrollToForm);
+window.addEventListener('resize' , () => {
+  document.querySelector('body').classList.remove('push');
+  document.querySelector('main').classList.remove('push');
+  document.querySelector('footer').classList.remove('push');
+  document.querySelector('body').addEventListener('click', scrollToForm);
+  document.querySelector('body').addEventListener('touchstart' , scrollToForm);
+  document.querySelector('body').addEventListener('keypress', scrollToForm);
+  document.documentElement.scrollTo(0, 0);
+});
 toggleButton.addEventListener('click', togglePassword);
 inputPassword.addEventListener('input', checkPassword);
 inputConfirmPassword.addEventListener('input', checkConfirmation);

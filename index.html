@@ -1,135 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up Form</title>
-    <link rel="shortcut icon" href="./image/lc_dark_green.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
-  </head>
-  <body class="locked">
-    <main>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-Up Form</title>
+  <link rel="shortcut icon" href="./image/lc_dark_green.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body class="locked" title="Touch, press a key or mouse button to continue...">
+  <span aria-label="Touch, press a key or mouse button to continue"></span>
+  <header>
+    <div>
+      <span class="background-image" role="img" aria-label="Background image: A man from behind in jeans and a blue plaid shirt with a backpack is hiking in the mountains."></span>
+      <img src="./image/lc_lime_empty.svg" alt="logo zodiac sign capricorn" title="Last Capricorn Logo" width="90px">
+      <h1>Exit</h1>
+    </div>
+    <div>
+      <p>Photo by
+        <a href="https://pixabay.com/de/users/hermann-130146/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=455338">
+        Hermann Traub</a>
+        on
+        <a href="https://pixabay.com/de//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=455338">
+        Pixabay</a>
+      </p>
+    </div>
+  </header>
+  <main>
+    <section>
       <div>
-        <div>
-          <img src="./image/lc_lime_empty.svg" alt="logo zodiac sign capricorn" width="60px">
-          <h1>Exit</h1>
-        </div>
-        <div>
-          <p>Photo by
-            <a href="https://pixabay.com/de/users/hermann-130146/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=455338">
-            Hermann Traub</a>
-            on
-            <a href="https://pixabay.com/de//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=455338">
-            Pixabay</a>
-          </p>
-        </div>
+        <p>This is <em>not</em> your real life!</p>
+        <p>You <em>know</em> I have to visit you</p>
+        <p>in your nightmares</p>
+        <p>force you to realize</p>
+        <p>you're mental starving</p>
+        <p>while in a deep sleep.</p>
       </div>
       <div>
-        <section>
-          <p>This is <em>not</em> your real life!</p>
-          <p>You <em>know</em> I have to visit you</p>
-          <p>in your nightmares</p>
-          <p>force you to realize</p>
-          <p>you're mental starving</p>
-          <p>while in a deep sleep.</p>
-          <p>Sign up <em>now</em> to Log Out.</p>
-          <p>I know you'll choose the red one.</p>
-        </section>
-        <section>
-          <p>Leave the Matrix <em>now</em>!</p>
-          <form action="#" method="post">
-            <p>Fields with <span aria-label="required">*</span> are required.</p>
-            <fieldset>
-              <legend>Information for contact</legend>
-              <label for="first_name">First Name<span aria-label="required">*</span></label>
-              <input type="text"
-                     id="first_name"
-                     name="first_name"
-                     required
-                     pattern="^[a-zA-Z][a-zA-Z\- .]*[a-zA-Z.]$"
-                     placeholder="Last"
-                     autocomplete="name"
-                     title="please tell us your first name"
-                     aria-describedby="name-validation">
-              <span id="name-validation" class="validation-message"></span>
-
-              <label for="last_name">Last Name<span aria-label="required">*</span></label>
-              <input type="text"
-                     id="last_name"
-                     name="last_name"
-                     required
-                     pattern="^[a-zA-Z][a-zA-Z\- .]*[a-zA-Z.]$"
-                     placeholder="Capricorn"
-                     autocomplete="family-name"
-                     title="please tell us your last name"
-                     aria-describedby="last-name-validation">
-              <span id="last-name-validation" class="validation-message"></span>
-
-              <label for="email">Email<span aria-label="required">*</span></label>
-              <input type="email"
-                     id="email"
-                     name="email"
-                     required
-                     placeholder="last.capricorn@3m41l.com"
-                     autocomplete="email"
-                     title="make sure to enter a valid email address"
-                     aria-describedby="email-validation">
-              <span id="email-validation" class="validation-message"></span>
-
-              <label for="phone_number">Phone Number</label>
-              <input type="tel"
-                     id="phone_number"
-                     name="phone_number"
-                     pattern="^(00|\+)[\d]{1,3}\s?\(?[0-9]{2,}(\)?)(\s?)[0-9 \-]{1,}[0-9]$"
-                     placeholder="+49 30 1234567"
-                     title="optionally your phone number here"
-                     aria-describedby="phone-validation">
-              <span id="phone-validation" class="validation-message"></span>
-
-            </fieldset>
-            <fieldset>
-              <legend>Choose an appropriate password</legend>
-              <ul>
-                <li>at least 8 signs</li>
-                <li>at least one uppercase character</li>
-                <li>at least one special character</li>
-                <li>at least one digit</li>
-              </ul>
-              <label for="password">Password<span aria-label="required">*</span>
-              </label>
-              <input type="password"
-                     id="password"
-                     name="password"
-                     required
-                     minlength="8"
-                     maxlength="128"
-                     placeholder="ab%D56?hI§k0M"
-                     title="at least 8 signs, upper- and lowercase, special characters and digits"
-                     aria-describedby="password-validation">
-              <span id="password-validation" class="validation-message"></span>
-
-              <button type="button" name="toggle_password" aria-controls="password" title="show password" value="show password">&#x1f648;</button>
-              <label for="password_confirm">Confirm Password<span aria-label="required">*</span>
-              </label>
-              <input type="password"
-                     id="password_confirm"
-                     name="password_confirm"
-                     placeholder="ab%D56?hI§k0M"
-                     required title="repeat the chosen password"
-                     aria-describedby="confirm-validation">
-              <span id="confirm-validation" class="validation-message"></span>
-
-              <button type="submit" name="submit" title="submit and create your account">Create Account</button>
-            </fieldset>
-          </form>
-        </section>
-        <section>
-          <p>You already know how deep the rabbit hole goes?</p>
-          <p><a href="#">Sign in</a></p>
-        </section>
+        <p>Sign up <em>now</em> to Log Out.</p>
+        <p>I know you'll choose the red one.</p>
       </div>
-    </main>
-  </body>
+    </section>
+    <section>
+      <p>Leave the Matrix <em>now</em>!</p>
+      <form action="#" method="post">
+        <p>Fields with <span aria-label="required">*</span> are required.</p>
+        <fieldset>
+          <legend>Information for contact</legend>
+          <label for="first_name">First Name<span aria-label="required">*</span>
+            <input type="text"
+                  id="first_name"
+                  name="first_name"
+                  required
+                  pattern="^[a-zA-Z][a-zA-Z\- .]*[a-zA-Z.]$"
+                  placeholder="Last"
+                  autocomplete="name"
+                  title="please tell us your first name"
+                  aria-describedby="name-validation">
+            <span id="name-validation" class="validation-message"></span>
+          </label>
+          <label for="last_name">Last Name<span aria-label="required">*</span>
+            <input type="text"
+                  id="last_name"
+                  name="last_name"
+                  required
+                  pattern="^[a-zA-Z][a-zA-Z\- .]*[a-zA-Z.]$"
+                  placeholder="Capricorn"
+                  autocomplete="family-name"
+                  title="please tell us your last name"
+                  aria-describedby="last-name-validation">
+            <span id="last-name-validation" class="validation-message"></span>
+          </label>
+          <label for="email">Email<span aria-label="required">*</span>
+            <input type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="last.capricorn@3m41l.com"
+                  autocomplete="email"
+                  title="make sure to enter a valid email address"
+                  aria-describedby="email-validation">
+            <span id="email-validation" class="validation-message"></span>
+          </label>
+          <label for="phone_number">Phone Number
+            <input type="tel"
+                  id="phone_number"
+                  name="phone_number"
+                  pattern="^(00|\+)[\d]{1,3}\s?\(?[0-9]{2,}(\)?)(\s?)[0-9 \-]{1,}[0-9]$"
+                  placeholder="+49 30 1234567"
+                  title="optionally your phone number here"
+                  aria-describedby="phone-validation">
+            <span id="phone-validation" class="validation-message"></span>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Choose an appropriate password</legend>
+          <ul>
+            <li>at least 8 signs</li>
+            <li>at least one uppercase letter</li>
+            <li>at least one special character</li>
+            <li>at least one digit</li>
+          </ul>
+          <label for="password">Password<span aria-label="required">*</span>
+            <input type="password"
+                  id="password"
+                  name="password"
+                  required
+                  minlength="8"
+                  maxlength="128"
+                  placeholder="ab%D56?hI§k0M"
+                  title="at least 8 signs, upper- and lowercase, special characters and digits"
+                  aria-describedby="password-validation">
+            <span id="password-validation" class="validation-message"></span>
+          </label>
+          <label for="password_confirm">Confirm Password<span aria-label="required">*</span>
+            <input type="password"
+            id="password_confirm"
+            name="password_confirm"
+            placeholder="ab%D56?hI§k0M"
+            required title="repeat the chosen password"
+            aria-describedby="confirm-validation">
+            <span id="confirm-validation" class="validation-message"></span>
+          </label>
+          <button type="button" name="toggle_password" aria-controls="password" title="show password" value="show password">&#x1f648;</button>
+        </fieldset>
+        <button type="submit" name="submit" title="submit and create your account">Create Account</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>You already know how deep the rabbit hole goes?</p>
+    <p><a href="#">Sign in</a></p>
+  </footer>
+</body>
 </html>
