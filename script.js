@@ -1,4 +1,5 @@
 const toggleButton = document.querySelector('button[name="toggle_password"]');
+const pwVisibility = document.querySelector('.status-visibility');
 const inputFields = document.querySelectorAll('input');
 const inputPassword = document.querySelector('input[name="password"]');
 const inputConfirmPassword = document.querySelector('input[name="password_confirm"]');
@@ -14,6 +15,7 @@ function scrollToForm() {
   document.querySelector('body').classList.add('push');
   document.querySelector('main').classList.add('push');
   document.querySelector('footer').classList.add('push');
+  document.querySelector('header').setAttribute('title', '');
   document.querySelector('body').removeEventListener('click', scrollToForm);
   document.querySelector('body').removeEventListener('touchstart', scrollToForm);
   document.querySelector('body').removeEventListener('keypress', scrollToForm);
@@ -23,6 +25,7 @@ function resetPage() {
   document.querySelector('body').classList.remove('push');
   document.querySelector('main').classList.remove('push');
   document.querySelector('footer').classList.remove('push');
+  document.querySelector('header').setAttribute('title', 'Touch, press a key or mouse button to continue...');
   document.querySelector('body').addEventListener('click', scrollToForm);
   document.querySelector('body').addEventListener('touchstart' , scrollToForm);
   document.querySelector('body').addEventListener('keypress', scrollToForm);
@@ -33,14 +36,17 @@ function togglePassword() {
   if (toggleButton.textContent === String.fromCodePoint(0x1f648)) {
     toggleButton.textContent = String.fromCodePoint(0x1f435);
     toggleButton.setAttribute('title', 'hide password');
+    toggleButton.setAttribute('value', 'password is shown');
     inputPassword.setAttribute('type', 'text');
     inputConfirmPassword.setAttribute('type', 'text');
   } else {
     toggleButton.textContent = String.fromCodePoint(0x1f648);
     toggleButton.setAttribute('title', 'show password'); 
+    toggleButton.setAttribute('value', 'password is hidden'); 
     inputPassword.setAttribute('type', 'password');
     inputConfirmPassword.setAttribute('type', 'password');
   }
+  pwVisibility.textContent = toggleButton.value;
 }
 
 function simpleValidityCheck(ev) {

@@ -130,11 +130,11 @@ section:last-of-type > p {
   letter-spacing: 0.25rem;
 }
 
-text-light {
+form {
   width: 99%;
 }
 
-text-light > p {
+form > p {
   font-size: 0.8rem;
   margin-top: 0.3rem;
 }
@@ -232,6 +232,10 @@ fieldset:last-of-type input {
   font-family: sans-serif;
 }
 
+input[type="password"]::-ms-reveal {
+  display: none;
+}
+
 .validation-message {
   display: block;
   font-size: 0.8rem;
@@ -271,6 +275,14 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   color: var(--clr-glow);
+}
+
+.status-visibility {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
 
 footer {
