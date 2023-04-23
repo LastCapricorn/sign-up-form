@@ -6,10 +6,10 @@ const pwRequirementList = document.querySelectorAll('li');
 let pwRequirements = [false, false, false, false];
 
 function scrollToForm() {
-  if (document.documentElement.clientWidth < document.documentElement.clientHeight) {
-    document.documentElement.scrollTo(0, document.documentElement.clientHeight);
-  } else {
+  if (document.documentElement.clientHeight > 799 && document.documentElement.clientWidth > 799) {
     document.documentElement.scrollTo(document.documentElement.clientWidth, 0);
+  } else {
+    document.documentElement.scrollTo(0, document.documentElement.clientHeight);
   }
   document.querySelector('body').classList.add('push');
   document.querySelector('main').classList.add('push');
