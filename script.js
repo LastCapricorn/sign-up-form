@@ -5,12 +5,53 @@ const inputConfirmPassword = document.querySelector('input[name="password_confir
 const pwRequirementList = document.querySelectorAll('li');
 let pwRequirements = [false, false, false, false];
 
-function checkConfirmation(ev) {
-  const pwConfirmed = ev.target.value === inputPassword.value ? true : false;
-  if (pwConfirmed) {
-    inputConfirmPassword.setCustomValidity('');
+function scrollToForm() {
+  if (document.documentElement.clientWidth < document.documentElement.clientHeight) {
+    document.documentElement.scrollTo(0, document.documentElement.clientHeight);
   } else {
-    inputConfirmPassword.setCustomValidity('Passwords do not match!');
+    document.documentElement.scrollTo(document.documentElement.clientWidth, 0);
+  }
+  document.querySelector('body').classList.add('push');
+  document.querySelector('main').classList.add('push');
+  document.querySelector('footer').classList.add('push');
+  document.querySelector('body').removeEventListener('click', scrollToForm);
+  document.querySelector('body').removeEventListener('touchstart', scrollToForm);
+  document.querySelector('body').removeEventListener('keypress', scrollToForm);
+}
+
+function resetPage() {
+  document.querySelector('body').classList.remove('push');
+  document.querySelector('main').classList.remove('push');
+  document.querySelector('footer').classList.remove('push');
+  document.querySelector('body').addEventListener('click', scrollToForm);
+  document.querySelector('body').addEventListener('touchstart' , scrollToForm);
+  document.querySelector('body').addEventListener('keypress', scrollToForm);
+  document.documentElement.scrollTo(0, 0);
+}
+
+function togglePassword() {
+  if (toggleButton.textContent === String.fromCodePoint(0x1f648)) {
+    toggleButton.textContent = String.fromCodePoint(0x1f435);
+    toggleButton.setAttribute('title', 'hide password');
+    inputPassword.setAttribute('type', 'text');
+    inputConfirmPassword.setAttribute('type', 'text');
+  } else {
+    toggleButton.textContent = String.fromCodePoint(0x1f648);
+    toggleButton.setAttribute('title', 'show password'); 
+    inputPassword.setAttribute('type', 'password');
+    inputConfirmPassword.setAttribute('type', 'password');
+  }
+}
+
+function simpleValidityCheck(ev) {
+  const isValid = ev.target.validity.valid;
+  const message = ev.target.validationMessage;
+  const validationId = ev.target.getAttribute('aria-describedby');
+  const connectedValidation = validationId ? document.getElementById(validationId) : false;
+  if (ev.target.value !== '' && connectedValidation && message && !isValid) {
+    connectedValidation.textContent = message;
+  } else {
+    connectedValidation.textContent = '';
   }
 }
 
@@ -38,59 +79,20 @@ function checkPassword(ev) {
   }
 }
 
-function simpleValidityCheck(ev) {
-  const isValid = ev.target.validity.valid;
-  const message = ev.target.validationMessage;
-  const validationId = ev.target.getAttribute('aria-describedby');
-  const connectedValidation = validationId ? document.getElementById(validationId) : false;
-  if (ev.target.value !== '' && connectedValidation && message && !isValid) {
-    connectedValidation.textContent = message;
+function checkConfirmation(ev) {
+  const pwConfirmed = ev.target.value === inputPassword.value ? true : false;
+  if (pwConfirmed) {
+    inputConfirmPassword.setCustomValidity('');
   } else {
-    connectedValidation.textContent = '';
+    inputConfirmPassword.setCustomValidity('Passwords do not match!');
   }
-}
-
-function togglePassword() {
-  if (toggleButton.textContent === String.fromCodePoint(0x1f648)) {
-    toggleButton.textContent = String.fromCodePoint(0x1f435);
-    toggleButton.setAttribute('title', 'hide password');
-    inputPassword.setAttribute('type', 'text');
-    inputConfirmPassword.setAttribute('type', 'text');
-  } else {
-    toggleButton.textContent = String.fromCodePoint(0x1f648);
-    toggleButton.setAttribute('title', 'show password'); 
-    inputPassword.setAttribute('type', 'password');
-    inputConfirmPassword.setAttribute('type', 'password');
-  }
-}
-
-function scrollToForm() {
-  if (document.documentElement.clientWidth < 739) {
-    document.documentElement.scrollTo(0, document.documentElement.clientHeight);
-  } else {
-    document.documentElement.scrollTo(document.documentElement.clientWidth, 0);
-  }
-  document.querySelector('body').classList.add('push');
-  document.querySelector('main').classList.add('push');
-  document.querySelector('footer').classList.add('push');
-  document.querySelector('body').removeEventListener('click', scrollToForm);
-  document.querySelector('body').removeEventListener('touchstart', scrollToForm);
-  document.querySelector('body').removeEventListener('keypress', scrollToForm);
 }
 
 document.querySelector('body').addEventListener('click', scrollToForm);
 document.querySelector('body').addEventListener('touchstart' , scrollToForm);
 document.querySelector('body').addEventListener('keypress', scrollToForm);
-window.addEventListener('resize' , () => {
-  document.querySelector('body').classList.remove('push');
-  document.querySelector('main').classList.remove('push');
-  document.querySelector('footer').classList.remove('push');
-  document.querySelector('body').addEventListener('click', scrollToForm);
-  document.querySelector('body').addEventListener('touchstart' , scrollToForm);
-  document.querySelector('body').addEventListener('keypress', scrollToForm);
-  document.documentElement.scrollTo(0, 0);
-});
+window.addEventListener('resize' , resetPage);
 toggleButton.addEventListener('click', togglePassword);
+inputFields.forEach( input => input.addEventListener('blur', simpleValidityCheck));
 inputPassword.addEventListener('input', checkPassword);
 inputConfirmPassword.addEventListener('input', checkConfirmation);
-inputFields.forEach( input => input.addEventListener('blur', simpleValidityCheck));
