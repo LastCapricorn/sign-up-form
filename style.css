@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
 
 :root {
-  --clr-body-bg: #020901;
-  --clr-overlay-bg: #020901af;
-  --clr-default-fg: #fff;
-  --clr-pine: #121911;
-  --clr-moss: #3d4611;
-  --clr-lush: #71832d;
-  --clr-meadow: #9bac5e;
-  --clr-young: #cfe65b;
-  --clr-cherry: #7f002f;
+  --clr-body-bg: #040818;
+  --clr-overlay-bg: #040818a8;
+  --clr-main: #182848;
+  --clr-form: #7898d8;
+  --clr-text-light: #c8d8e8;
+  --clr-button-bg: #1f3f1f;
+  --clr-button-text: #c0e6ac;
+  --clr-glow: #cfef5f;
+  --clr-hover: #160612;
+  --clr-star: #7f002f;
 }
 
 html {
@@ -31,7 +32,7 @@ body {
   width: 100%;
   font-family: "Schoolbell", cursive;
   background-color: var(--clr-body-bg);
-  color: var(--clr-young);
+  color: var(--clr-form);
   display: grid;
   grid-template-rows: 100vh auto auto;
   overflow: hidden;
@@ -78,30 +79,31 @@ header div:last-of-type {
   padding: 0.1rem 0;
   text-align: center;
   font-size: 0.8rem;
+  color: var(--clr-text-light);
 }
 
 header div:last-of-type p a:link {
-  color: var(--clr-young);
+  color: var(--clr-text-light);
 }
 
 header div:last-of-type p a:visited {
-  color: var(--clr-meadow);
+  color: var(--clr-form);
 }  
 
 header div:last-of-type p a:hover {
-  color: var(--clr-cherry);
+  color: var(--clr-hover);
 }  
 
 main {
   width: 100%;
-  background-color: var(--clr-moss);
+  background-color: var(--clr-main);
 }    
 
 section:first-of-type {
   width: calc(100% - 8px);
   margin-top: 0.5rem;
   padding: 0 0 0.5rem 4.0rem;
-  color: var(--clr-young);
+  color: var(--clr-text-light);
 }
 
 section:first-of-type div:last-of-type p:first-of-type {
@@ -114,9 +116,9 @@ section:first-of-type div:last-of-type p:last-of-type {
 
 section:last-of-type {
   width: calc(100% - 8px);
-  background-color: var(--clr-meadow);
-  color: var(--clr-pine);
-  box-shadow: 4px 4px 6px var(--clr-pine);
+  background-color: var(--clr-form);
+  color: var(--clr-main);
+  box-shadow: 4px 4px 6px var(--clr-body-bg);
   padding: 1.25rem 0 0.75rem 0.3rem;
   margin-bottom: 0.75rem;
 }
@@ -128,36 +130,40 @@ section:last-of-type > p {
   letter-spacing: 0.25rem;
 }
 
-form {
+text-light {
   width: 99%;
 }
 
-form > p {
+text-light > p {
   font-size: 0.8rem;
   margin-top: 0.3rem;
 }
 
 span[aria-label="required"] {
-  color: var(--clr-cherry);
+  color: var(--clr-star);
 }
 
 fieldset {
   position: relative;
   padding: 1.0rem 0.5rem 0.5rem 0.5rem;
-  border: 2px groove var(--clr-pine);
+  border: 2px groove var(--clr-body-bg);
   display: grid;
 }
 
 fieldset + fieldset {
   margin-top: 1.25rem;
 }
-fieldset:last-of-type {grid-template-columns: 80% auto;}
+
+fieldset:last-of-type {
+  grid-template-columns: 80% auto;
+}
+
 legend {
   position: absolute;
   top: -0.7rem;
   right: 0.35rem;
-  background-color: var(--clr-pine);
-  color: var(--clr-young);
+  background-color: var(--clr-main);
+  color: var(--clr-text-light);
   font-size: 0.9rem;
   padding: 0.15rem 0.3rem;
   border-radius: 12px;
@@ -172,8 +178,8 @@ label {
 input {
   display: block;
   border: none;
-  border-bottom: 1px solid var(--clr-pine);
-  background-color: var(--clr-meadow);
+  border-bottom: 1px solid var(--clr-body-bg);
+  background-color: var(--clr-form);
   font-family: inherit;
   font-size: 1.1rem;
   padding-left: 0.25rem;
@@ -189,14 +195,14 @@ fieldset:last-of-type input {
 
 input:focus, button:focus {
   outline: none;
-  box-shadow: -1px -1px 5px 1px var(--clr-pine),
-  1px -1px 5px 1px var(--clr-pine),
-  -1px 1px 5px 1px var(--clr-pine),
-  1px 1px 5px 1px var(--clr-pine);
+  box-shadow: -1px -1px 5px 1px var(--clr-button-bg),
+  1px -1px 5px 1px var(--clr-button-bg),
+  -1px 1px 5px 1px var(--clr-button-bg),
+  1px 1px 5px 1px var(--clr-button-bg);
 }
 
 input::placeholder {
-  color: var(--clr-lush);
+  color: var(--clr-text-light);
 }
 
 ul {
@@ -213,13 +219,13 @@ li {
 
 li::before {
   content: '\2718';
-  color: var(--clr-cherry);
+  color: var(--clr-star);
   margin-right: 0.3rem;
 }
 
 li.passed::before {
   content: "\2714";
-  color: green;
+  color: var(--clr-button-bg);
 }
 
 fieldset:last-of-type input {
@@ -229,7 +235,7 @@ fieldset:last-of-type input {
 .validation-message {
   display: block;
   font-size: 0.8rem;
-  color: var(--clr-cherry);
+  color: var(--clr-star);
   line-height: 0.8rem;
 }
 
@@ -247,7 +253,7 @@ button[type="button"] {
   align-self: center;
   justify-self: center;
   cursor: pointer;
-  background-color: var(--clr-moss);
+  background-color: var(--clr-button-bg);
   font-size: 1.75rem;
   width: 3.0rem;
   height: 3.0rem;
@@ -256,16 +262,21 @@ button[type="button"] {
 button[type="submit"] {
   cursor: pointer;
   margin-top: 0.75rem;
-  background-color: var(--clr-moss);
-  color: var(--clr-young);
+  background-color: var(--clr-button-bg);
+  color: var(--clr-button-text);
   font-family: inherit;
   font-size: 1.5rem;
   padding: 0.75rem 0.5rem;
 }
 
+button[type="submit"]:hover {
+  color: var(--clr-glow);
+}
+
 footer {
   width: 100%;
-  background-color: var(--clr-moss);
+  background-color: var(--clr-main);
+  color: var(--clr-text-light);
   padding: 0 0.5rem;
   display: grid;
   grid-template-rows: 1.75rem 1.75rem auto;
@@ -274,16 +285,18 @@ footer {
 }
 
 footer p:nth-of-type(2) a:any-link {
-  background-color: var(--clr-pine);
-  color: var(--clr-young);
+  background-color: var(--clr-main);
+  color: var(--clr-text-light);
   text-decoration-line: none;
   padding: 0 0.5rem;
   border-radius: 18px;
-  box-shadow: 1px 1px 8px var(--clr-young);
+  box-shadow: 1px 1px 8px var(--clr-button-text);
 }
 
 footer p:nth-of-type(2) a:hover {
-  background-color: var(--clr-cherry);
+  background-color: var(--clr-hover);
+  color: var(--clr-glow);
+  box-shadow: 1px 1px 8px var(--clr-glow);
 }
 
 footer p:last-of-type {
@@ -292,15 +305,15 @@ footer p:last-of-type {
 }
 
 footer p:last-of-type a:link {
-  color: var(--clr-young);
+  color: var(--clr-text-light);
 }
 
 footer p:last-of-type a:visited {
-  color: var(--clr-meadow);
+  color: var(--clr-form);
 }
 
 footer p:last-of-type a:hover {
-  color: var(--clr-cherry);
+  color: var(--clr-hover);
 }
 
 @media screen and (499px < width < 800px) {
@@ -385,7 +398,7 @@ footer p:last-of-type a:hover {
     align-items: end;
   }
 
-  form {
+  text-light {
     padding-left: 2.0rem;
   }
 
