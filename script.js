@@ -21,17 +21,6 @@ function scrollToForm() {
   document.querySelector('body').removeEventListener('keypress', scrollToForm);
 }
 
-function resetPage() {
-  document.querySelector('body').classList.remove('push');
-  document.querySelector('main').classList.remove('push');
-  document.querySelector('footer').classList.remove('push');
-  document.querySelector('header').setAttribute('title', 'Touch, press a key or mouse button to continue...');
-  document.querySelector('body').addEventListener('click', scrollToForm);
-  document.querySelector('body').addEventListener('touchstart' , scrollToForm);
-  document.querySelector('body').addEventListener('keypress', scrollToForm);
-  document.documentElement.scrollTo(0, 0);
-}
-
 function togglePassword() {
   if (toggleButton.textContent === String.fromCodePoint(0x1f648)) {
     toggleButton.textContent = String.fromCodePoint(0x1f435);
@@ -97,7 +86,6 @@ function checkConfirmation(ev) {
 document.querySelector('body').addEventListener('click', scrollToForm);
 document.querySelector('body').addEventListener('touchstart' , scrollToForm);
 document.querySelector('body').addEventListener('keypress', scrollToForm);
-window.addEventListener('resize' , resetPage);
 toggleButton.addEventListener('click', togglePassword);
 inputFields.forEach( input => input.addEventListener('blur', simpleValidityCheck));
 inputPassword.addEventListener('input', checkPassword);
